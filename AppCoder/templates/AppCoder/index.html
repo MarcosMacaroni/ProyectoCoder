@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>Proyecto MarcosMacaroni</title>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" type="text/css"/>
         <!-- Favicon-->
@@ -17,17 +17,20 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-        
+        {% comment %} fuente pagina registro {% endcomment %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
         
     </head>
     <body>
-
+        {{respuesta}}
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <a class="navbar-brand" href="#!">PROYECTO CODER MARCOS</a>
                 <a class="navbar-brand" href="{% url 'link1' %}">Registro</a>
-                <a class="navbar-brand" href="{% url 'link2' %} ">Link 2</a>
+                <a class="navbar-brand" href="{% url 'buscar' %} ">Buscar Usuario</a>
                 <a class="navbar-brand" href="{% url 'link3' %}">Link 3</a>
                 <a class="navbar-brand" href="{% url 'link4' %}">Link 4</a>
             </div>
@@ -41,7 +44,10 @@
                             <!-- Page heading-->
                             {% block 'registrousuario'  %}
         
-                            {% endblock 'registrousuario' %}      
+                            {% endblock 'registrousuario' %}   
+                            {% block 'buscarusuario'  %}
+           
+                            {% endblock 'buscarusuario' %}   
                         </div>
                     </div>
                 </div>
