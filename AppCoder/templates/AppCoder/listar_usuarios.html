@@ -9,16 +9,36 @@
 </head>
 <body>
 {% block 'listausuarios'  %}
-        <h1 class='titulo'> Lista usuarios </h1>
-        <ul class='text-light'>
+    <h1 class='titulo'> Lista usuarios </h1>
+    <form class="text-light" action={% url 'listausuarios' %} method="GET">
+        <input type="text" name='dni' placeholder="Ingrese DNI"/>
+        <input type="submit" placeholder="Buscar"/>
+    </form>
+
+    <ul class='text-light'>
+        {% if usuarios %}
             {% for usuario in usuarios %}
                 <li>
-                    {{usuario}}
+                    <a href={% url 'detalle_cliente' usuario.id %}> {{usuario}} </a>
                 </li>
-     
-         {% endfor %}
-        </ul>
+                <button>
+                    <a href="{% url 'eliminar_cliente' usuario.id %}">Borrar</a>
+                </button>
+            {% endfor %}
+        {% elif error %}
+            <h4 class="text-light">{{error}}</h4>
+        {% else %}
+            <h4 class="text-light">No se encontro cliente</h4>
+        {% endif %}
+    </ul>
+    <button>
+        <a href="{% url 'crear_cliente' %}">Agregar otro usuario</a>
+    </button>
+    <button>
+        <a href="{% url 'editar' %}">Editar</a>
+    </button>
+
+    {% endblock 'listausuarios' %}
 </body>
-{% endblock 'listausuarios' %}
 </html>
 

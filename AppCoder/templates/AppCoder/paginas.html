@@ -1,0 +1,70 @@
+{% extends 'AppCoder/index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block 'headblock' %}
+    <div class="list-group">
+        <a href="{% url 'login' %}" class="list-group-item list-group-item-action flex-column align-items-start active">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Iniciar Sesion</h5>
+          </div>
+          <p class="mb-1">Inicio de sesion para usuarios registrados</p>
+          <small>PARA INGREGAR A LAS DEMAS PAGINAS DEBES REGISTRARTE Y LOGEARTE COMO USUARIO</small>
+        </a>
+        <a href="{% url 'register' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Registrate como usuario</h5>
+            <small class="text-muted"></small>
+          </div>
+          <p class="mb-1">Registro de usuarios</p>
+          <small class="text-muted"></small>
+        </a>
+        <a href="{% url 'turnos' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Reserva tu turno</h5>
+            <small class="text-muted"></small>
+          </div>
+          <p class="mb-1">Reserva tu turno para el gimnasio, con los datos solicitados</p>
+          <small class="text-muted"></small>
+        </a>
+        <a href="{% url 'listausuarios' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Lista de clientes</h5>
+            <small class="text-muted"></small>
+          </div>
+          <p class="mb-1">Informacion de los clientes incriptos en el gimnasio, permite ver,editar y borrar los mismos.</p>
+          <small class="text-muted"></small>
+        </a>
+        <a href="{% url 'editar' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Editar usuario</h5>
+              <small class="text-muted"></small>
+            </div>
+            <p class="mb-1">Edicion de usuario, permite editar todos los datos solicitados</p>
+            <small class="text-muted"></small>
+        </a>
+        <a href="{% url 'editar_avatar' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Editar avatar</h5>
+              <small class="text-muted"></small>
+            </div>
+            <p class="mb-1">Edicion de Avatar, permite editar la imagen de perfil del usuario</p>
+            <small class="text-muted"></small>
+        </a>
+        <a href="{% url 'inicio' %}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Inicio</h5>
+              <small class="text-muted"></small>
+            </div>
+            <p class="mb-1">Pagina principal, volver al menu inicial</p>
+            <small class="text-muted"></small>
+        </a>
+    {% endblock 'headblock' %}
+</body>
+</html>

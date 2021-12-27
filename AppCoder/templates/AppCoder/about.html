@@ -1,0 +1,42 @@
+{% extends 'AppCoder/index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros</title>
+</head>
+<body>
+{% block 'headblock' %}
+<img class="imgRedonda mb-5" src="{% static '\AppCoder\assets\img\marcos-giu.png' %}">
+<div class="list-group">
+    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Acerca de nosotros</h5>
+      </div>
+      <p class="mb-1"><Blockquote>
+        ¡Hola! Somos Marcos y Giuliano.
+</Blockquote>
+<Blockquote>
+Nacimos en la ciudad de La Plata, y ambos transcurrimos nuestra infancia en Manuel B Gonnet, barrio de la escuela primaria que dio origen a esta amistad.
+</Blockquote>
+<Blockquote>
+Desde chicos estamos relacionados con las computadoras, ya sea a través de la reparación de PC´s, de levantar servidores de juegos como Mu o Counter Strike para nuestros amigos, y de más está decir, que por la pasión que nos unió siempre, el gaming.
+</Blockquote>
+<Blockquote>
+Luego de finalizar los estudios secundarios, y tras haber iniciado y abandonado carreras distintas, nos volvimos a reencontrar en el año 2017 para cursar la carrera de Licenciatura en Sistemas, de la Universidad Nacional de La Plata.  
+Pese a haber realizado primer y segundo año, nos vimos afectados por cuestiones laborales que finalmente nos impidieron continuar con la exigencia que requiere dicha carrera, dejándola por el momento en pausa…
+</Blockquote>
+<Blockquote>
+No fue suficiente sin embargo para alejarnos de los sistemas de la información; continuamos capacitándonos a través de cursos y de manera autodidacta, y es ahora con Coderhouse que comenzamos a cumplir nuestro objetivo de tener un proyecto juntos.
+</Blockquote>
+<Blockquote>
+¡Esperamos que les guste!
+</Blockquote></p>
+    </a>
+<div>
+{% endblock 'headblock' %}
+</body>
+</html>
