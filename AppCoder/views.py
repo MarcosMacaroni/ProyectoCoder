@@ -156,7 +156,6 @@ def editar_avatar(request):
 
     
     return render(request, 'AppCoder/editar_avatar.html', {'formulario':form })
-
 class UsuarioDetailView(DetailView):
     model= Usuarios
     template_name= 'AppCoder/detalle_cliente.html'

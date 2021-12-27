@@ -24,6 +24,9 @@
                 <button>
                     <a href="{% url 'eliminar_cliente' usuario.id %}">Borrar</a>
                 </button>
+                <button>
+                    <a href="{% url 'editar_cliente' %}">Editar</a>
+                </button>
             {% endfor %}
         {% elif error %}
             <h4 class="text-light">{{error}}</h4>
@@ -34,11 +37,7 @@
     <button>
         <a href="{% url 'crear_cliente' %}">Agregar otro usuario</a>
     </button>
-    <button>
-        <a href="{% url 'editar' %}">Editar</a>
-    </button>
-
-    {% endblock 'listausuarios' %}
+{% endblock 'listausuarios' %}
 </body>
 </html>
 
