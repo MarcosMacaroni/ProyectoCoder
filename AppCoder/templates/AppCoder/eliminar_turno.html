@@ -1,10 +1,9 @@
 {% extends 'AppCoder/index.html' %}
-    {% block 'headblock' %}
-        <title> Eliminar Cliente </title>
+{% block 'headblock' %}
+        <title> Eliminar Turno</title>
         <form class='text-light' method='POST'>
             {% csrf_token %}
-            ¿Estas seguro que queres eliminar el cliente "{{object}}"?
+            ¿Estas seguro que queres eliminar el turno "{{object}}"?
             <input type="submit" value="Confirmar" />
         </form>
     {% endblock 'headblock' %}
-

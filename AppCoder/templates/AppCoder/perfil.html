@@ -1,0 +1,12 @@
+{% extends 'AppCoder/index.html' %}
+    {% block 'loginusuario' %}
+        <h1 class="titulo"> Perfil</h1>
+    
+        <a class="text-light"> Usuario: {{request.user.username}} </a>
+        <a class="text-light"> Email: {{request.user.email}} </a>}
+        <a class="text-light"> Nombre: {{request.user.first_name}} </a>
+        <a class="text-light"> Apellido: {{request.user.last_name}} </a>
+            <img src={{Avatar.avatar.url}} height='50' />
+            <!-- No pudimos mostrar la imagen del avatar para que pueda visualizar que tiene uno cargado-->
+        
+    {% endblock 'loginusuario' %}

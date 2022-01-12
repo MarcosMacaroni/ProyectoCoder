@@ -1,0 +1,29 @@
+{% extends 'AppCoder/index.html' %}
+
+
+{% block 'headblock' %}
+    <ul>
+        <h1 class="titulo"> Lista Turnos </h1>
+        <!-- Itero en la lista de turnos-->
+        {% for object in object_list %}
+        <!-- Visualizamos los turnos -->
+            <class="text-light">
+        
+                {{ object.nombre }}
+              
+                {{ object.actividad }}
+              
+                {{ object.fecha }}
+               
+            <button>
+                <a href="{% url 'eliminar_turno' object.id %}">Borrar</a>
+            </button>
+        </hr>
+        <!-- Si no hay turnos  -->
+        {% empty %}
+        <class='text-light'>
+            <h9 class="text-light"> No hay turnos guardados</h9>
+        {% endfor %}
+
+    </ul>
+{% endblock 'headblock' %}

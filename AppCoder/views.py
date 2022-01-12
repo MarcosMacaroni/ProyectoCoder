@@ -4,7 +4,7 @@ from django.contrib.auth.password_validation import password_changed
 from django.db.models import fields
 from django.db.models.fields import DateTimeField
 from django.db.models.lookups import IContains
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .forms import AvatarCreationForm, FormularioTurno,FormularioUsuarios, RegistroUsuariosForms, EditarUsuarioForms
 from .models import Avatar, Usuarios, Turnos
 from django.db.models import Q
@@ -13,7 +13,9 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,authenticate
 from django.views.generic import DetailView, DeleteView
-from django.urls import reverse_lazy
+from django.views.generic.list import ListView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 # Create your views here.
 
@@ -35,7 +37,7 @@ def crear_usuario(request):
         formulario=FormularioUsuarios(request.POST,request.FILES)
         if formulario.is_valid():
             dato_usuario=formulario.cleaned_data
-            usuario=Usuarios(nombre=dato_usuario['nombre'],apellido=dato_usuario['apellido'],dni=dato_usuario['dni'],imagen=dato_usuario['imagen'])
+            usuario=Usuarios(nombre=dato_usuario['nombre'],apellido=dato_usuario['apellido'],dni=dato_usuario['dni'])
             usuario.save()
             mensaje='Cliente creado con exito'
             return render(request,'AppCoder/index.html', {'mensaje_usuario':mensaje})
@@ -132,7 +134,7 @@ def editar_user(request):
             
             return render(request, 'AppCoder/index.html',{'tiene_mensaje':True, 'mensajeregister':f'Se edito correctamente'})
     else:
-        form=EditarUsuarioForms()
+        form=EditarUsuarioForms(initial={'email':usuario.email, 'first_name':usuario.first_name,'last_name':usuario.last_name})
 
     
     return render(request, 'AppCoder/editar_user.html', {'formulario':form,'usuario':usuario})
@@ -162,7 +164,25 @@ class UsuarioDetailView(DetailView):
     
 class UsuarioDeleteView(DeleteView):
     model = Usuarios
-    success_url= 'AppCoder/index.html'
+    success_url= '/'
+class TurnoListView(ListView):
+    model= Turnos
+    template_name= 'AppCoder/listar_turnos.html'
+
+class TurnoDeleteView(DeleteView):
+    model=Turnos
+    success_url='/lista_turnos/'
+
+class ClienteUpdateView(UpdateView):
+    model= Usuarios
+    template_name="AppCoder/editar_cliente.html"
+    fields= ['nombre', 'apellido', 'dni']
+    success_url="/"
+
+class AvatarListView(ListView):
+    model=Avatar
+    template_name='AppCoder/perfil.html'
+    
     
 
     
